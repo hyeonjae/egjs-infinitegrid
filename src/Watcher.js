@@ -65,8 +65,8 @@ export default class Watcher {
 		this._prevPos = rawPos - this.getContainerOffset();
 	}
 	attachEvent() {
-		addEvent(this._view, "scroll", this._onCheck);
-		addEvent(window, "resize", this._onResize);
+		addEvent(this._view, "scroll", this._onCheck, {passive:false});
+		addEvent(window, "resize", this._onResize, {passive:false});
 	}
 	getOrgScrollPos() {
 		return scroll(this._view, this.options.horizontal);
